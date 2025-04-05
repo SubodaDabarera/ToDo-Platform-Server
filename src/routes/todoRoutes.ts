@@ -13,9 +13,9 @@ router.get('/', authenticate, getTodos);
 //@ts-ignore
 router.post('/', authenticate, createTodo);
 
-// Update todo (including drag & drop)
+// Update todo one item (including drag & drop)
 //@ts-ignore
-router.put('/:id', authenticate, async (req: AuthRequest, res: Response) => {
+router.put('item/:id', authenticate, async (req: AuthRequest, res: Response) => {
   try {
     const { title, description, category, deadline, position } = req.body;
     const todo = await Todo.findOne({
